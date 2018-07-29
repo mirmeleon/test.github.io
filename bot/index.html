@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>app</title>
+    <script>    
+    !function(e,t,n,r){ 
+    function s(){
+     try{
+       var e;
+        if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){
+        var n=t.getElementsByTagName("script")[0],r=t.createElement("script");
+        r.async=!0,r.src=e.url,n.parentNode.insertBefore(r,n)
+      }
+     }
+     catch(e){}}var o,p,a,i=[],c=[];e[n]={init:function(){o=arguments;
+      var e={then:function(t){
+        return c.push({type:"t",next:t}),e
+        } ,catch:function(t){return c.push({type:"c",next:t}),e}};
+        return e},on:function(){
+         i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}
+        } ,e.__onWebMessengerHostReady__=function(t){
+         if(delete e.__onWebMessengerHostReady__,e[n]=t,o)for(var r=t.init.apply(t,o),s=0;s<c.length;s++){
+          var u=c[s];
+           r="t"===u.type?r.then(u.next):r.catch(u.next)
+           } p&&t.render.apply(t,p),a&&t.destroy.apply(t,a);
+         for(s=0;s<i.length;s++)t.on.apply(t,i[s])};
+         var u=new XMLHttpRequest;u.addEventListener("load",s),u.open("GET",r+"/loader.json",!0),u.responseType="json",u.send() 
+        }
+     (window,document,"Bots", "http://localhost:8000/static/"); 
+    
+    </script>
+    <style>
+    #chat-container {
+        width:450px;
+        height: 550px;
+        margin: 100px;
+    }
+    </style>
+</head>
+<body>
+  <!--   near the end body section -->
+  tada
+
+
+  <div id="chat-container">
+
+  </div>
+
+  <script>
+  Bots.init({
+      appId:'5b3b1943924b740027ae5f8b',
+      embedded: false,
+      displayStyle: "button",
+     
+                   customText: {
+                   headerText: 'How can we help?',
+                   inputPlaceholder: 'Type a message...',
+                   sendButtonText: 'Send',
+                   introductionText: 'We\'re here to talk, so ask us anything!',
+               },
+                   customColors: {
+                   brandColor: "FF781F",
+                   conversationColor: "FF781F",
+                   actionColor: "FAA61A"
+               },
+               businessName: "SGS Chatbot",
+               menuItems: {
+                 imageUpload: false,
+                 fileUpload: false,
+                 shareLocation: false
+               }
+    });
+
+
+
+    Bots.render(document.getElementById('chat-container'));
+
+   
+
+  </script>
+</body>
+</html>
